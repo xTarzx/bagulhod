@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/index.css') }}"
+        />
+        <title>bagulhod</title>
+    </head>
+    <body>
+        <div class="search-form-container">
+            <form action="/">
+                <input
+                    class="search-input"
+                    type="text"
+                    name="term"
+                    id="term"
+                    value="{{term}}"
+                />
+                <input class="search-button" type="submit" value="xpia" />
+            </form>
+        </div>
+
+        <div class="response-container">
+            <ul>
+                {% for entry in results %}
+                <div class="entry-container">
+                    <li class="result-entry">
+                        <form action="/play">
+                            <input
+                                type="text"
+                                hidden
+                                name="url"
+                                value="{{entry.url}}"
+                            />
+                            <input
+                                type="image"
+                                src="{{entry.thumbnail}}"
+                                class="thumb"
+                            />
+                            <input
+                                class="button_link"
+                                type="submit"
+                                value="{{entry.title}}"
+                            />
+                        </form>
+                    </li>
+                </div>
+                {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>

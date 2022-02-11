@@ -1,0 +1,6 @@
+__pycache__
+*.log
+ignore
+adblock_plus-3.11.4-an+fx.xpi
+drivers/firefox_win32
+drivers/firefox
